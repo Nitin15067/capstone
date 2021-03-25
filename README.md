@@ -19,9 +19,40 @@ Featuring functionalities like:
 
 ## Getting Started
 
-### Pre-requisites and Local Development
+Developers using this project should already have Python3, pip, angular and node installed on their local machine.
 
-Developers using this project should already have Python3, pip and node installed on their local machine.
+## Pre-requisites and Local Development for Frontend
+
+Directory: frontend
+
+### Installing dependencies
+
+To install the dependencies, run the following command:
+`npm install`
+All required packages are included in the requirements file.
+
+### Starting Application
+
+To run the application, run the following commands:
+
+```
+npm start
+```
+
+The applicaiton will run on `http://127.0.0.1:4200` by default.
+
+#### Authentication and Token Generation
+
+1. Goto `http://127.0.0.1:4200/tabs/user-page`
+2. Click on Login Button
+3. This will take you to auth0 authentication page where you can use credentials for 1. assistant 2. director 3. producer
+   as provided in `./backend/constants.py` to login.
+4. This will generate token for the correspoinding user type.
+5. Use that token to test the api's.
+
+## Pre-requisites and Local Development for Backend
+
+Directory: backend
 
 ### Installing dependencies
 
