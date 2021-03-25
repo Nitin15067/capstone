@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+    <ion-title><b>Movies</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="movies && movies.items">
+<div style="display: flex; flex-wrap:wrap; justify-content: center; padding-top: 20px;">
+    <ion-card
+     style="align-items: center; display: flex; flex-direction: column; cursor: pointer;" 
+     *ngFor="let movie of Object.keys(movies.items)"
+     (click)="openForm(movies.items[movie])">
+        <ion-card-header>
+          <ion-card-title>{{movies.items[movie].title}}</ion-card-title>
+        </ion-card-header>
+      
+      </ion-card>
+    <ion-card
+     style="opacity: .7; align-items: center; display: flex; flex-direction: column; cursor: pointer;" 
+     *ngIf="auth.can('post:movies')"
+     (click)="openForm()">
+        <ion-card-header>
+          <ion-card-title>Create movie</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content style="color:grey; font-size: 256%;">
+            <ion-icon name="add-circle"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+</div>
+</ion-content>

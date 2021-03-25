@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+    <ion-title><b>Actors</b> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="actors && actors.items">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; padding-top: 20px;">
+    <ion-card
+     style="align-items: center; display: flex; flex-direction: column; cursor: pointer;" 
+     *ngFor="let actor of Object.keys(actors.items)"
+     (click)="openForm(actors.items[actor])">
+        <ion-card-content>
+          <ion-card-title><b>Name:</b> {{actors.items[actor].name}}</ion-card-title>
+          <ion-card-title><b>Age:</b> {{actors.items[actor].age}}</ion-card-title>
+          <ion-card-title><b>Gender:</b> {{actors.items[actor].gender}}</ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    <ion-card
+     style="opacity: .7; align-items: center; display: flex; flex-direction: column; cursor: pointer;" 
+     *ngIf="auth.can('post:actors')"
+     (click)="openForm()">
+        <ion-card-header>
+          <ion-card-title>Create actor</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content style="color:grey; font-size: 256%;">
+            <ion-icon name="add-circle"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+</div>
+</ion-content>
